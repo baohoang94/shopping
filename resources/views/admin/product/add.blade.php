@@ -6,7 +6,7 @@
 
 @section('css')
   <link href="{{ asset('vendors/select2/select2.min.css') }}" rel="stylesheet" />
-  <link href="{{ asset('admin/product/add/add.css') }}" rel="stylesheet" />
+  <link href="{{ asset('admins/product/add/add.css') }}" rel="stylesheet" />
 @endsection
 
 @section('content')
@@ -73,5 +73,5 @@
 @section('js')
   <script src="{{ asset('vendors/select2/select2.min.js') }}"></script>
   <script src="https://cdn.tiny.cloud/1/27cr4naem6bn54b3int4ij7mxvafppvyrlegajif9r1n43to/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
-  <script src="{{ asset('admin/product/add/add.js') }}"></script>
+  <script src="{{ asset('admins/product/add/add.js') }}"></script>
 @endsection
