@@ -13,7 +13,7 @@
 <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
   @include('partials.content-header', ['name' => 'product', 'key' => 'Add'])
-    <form action="" method="post" enctype="multipart/form-data">
+    <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
       <!-- Main content -->
       <div class="content">
         <div class="container-fluid">
