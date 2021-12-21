@@ -90,4 +90,10 @@ class AdminProductController extends Controller
             echo $errorMessage;
         }
     }
+    public function edit($id)
+    {
+        $product = $this->product->find($id);
+        $htmlOption = $this->getCategory($product->category_id);
+        return view('admin.product.edit', compact('htmlOption', 'product'));
+    }
 }

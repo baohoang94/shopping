@@ -20,4 +20,9 @@ class Product extends Model
     {
         return $this->belongsTo(Category::class, 'category_id');
     }
+    // hàm này làm thừa vì có hàm images() ở trên rồi :v
+    public function productImages()
+    {
+        return $this->hasMany(ProductImage::class, 'product_id');
+    }
 }
