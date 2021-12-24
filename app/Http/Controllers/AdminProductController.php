@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Category;
 use App\Components\Recusive;
+use App\Http\Requests\ProductAddRequest;
 use App\Product;
 use App\ProductImage;
 use App\ProductTag;
@@ -46,7 +47,7 @@ class AdminProductController extends Controller
         $htmlOption = $recusive->categoryRecusive($parentId);
         return $htmlOption;
     }
-    public function store(Request $request)
+    public function store(ProductAddRequest $request)
     {
         try {
             DB::beginTransaction();
