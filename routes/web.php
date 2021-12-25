@@ -95,4 +95,10 @@ Route::prefix('admin')->group(function () {
             'uses' => 'AdminProductController@delete'
         ]);
     });
+    Route::prefix('slider')->group(function () {
+        Route::get('/', [
+            'as' => 'slider.index',
+            'uses' => 'SliderAdminController@index'
+        ]);
+    });
 });
