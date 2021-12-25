@@ -70,4 +70,21 @@ class SliderAdminController extends Controller
             echo $errorMessage;
         }
     }
+    public function delete($id)
+    {
+        try {
+            $this->slider->find($id)->delete();
+            return response()->json([
+                'code' => 200,
+                'message' => 'Delete success',
+            ], 200);
+        } catch (\Exception $exception) {
+            $errorMessage = 'Mesage: ' . $exception->getMessage() . '. Line: ' . $exception->getLine();
+            Log::error($errorMessage);
+            return response()->json([
+                'code' => 500,
+                'message' => 'Delete fail',
+            ], 500);
+        }
+    }
 }
