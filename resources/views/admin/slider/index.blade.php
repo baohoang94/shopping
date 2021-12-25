@@ -40,7 +40,7 @@
                         <img class="image_slider_150_100" src="/shopping/public{{ $slider->image_path }}" alt="{{ $slider->image_name }}">
                     </td>
                     <td>
-                      <a href="" class="btn btn-default">Edit</a>
+                      <a href="{{ route('slider.edit', ['id' => $slider->id]) }}" class="btn btn-default">Edit</a>
                       <a href="" class="btn btn-danger">Delete</a>
                     </td>
                   </tr>

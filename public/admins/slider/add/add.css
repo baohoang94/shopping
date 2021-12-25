@@ -1,0 +1,6 @@
+.image_slider {
+    width: 130px;
+    height: 100%;
+    margin-top: 10px;
+    object-fit: cover;
+}
