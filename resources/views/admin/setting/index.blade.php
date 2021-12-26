@@ -42,22 +42,22 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                {{-- @foreach ($menus as $menu) --}}
+                                @foreach ($settings as $setting)
                                 <tr>
-                                    <th scope="row">1</th>
-                                    <td>config key</td>
-                                    <td>config value</td>
+                                    <th scope="row">{{ $setting->id }}</th>
+                                    <td>{{ $setting->config_key }}</td>
+                                    <td>{{ $setting->config_value }}</td>
                                     <td>
                                         <a href="" class="btn btn-default">Edit</a>
                                         <a href="" class="btn btn-danger">Delete</a>
                                     </td>
                                 </tr>
-                                {{-- @endforeach --}}
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
                     <div class="col-md-12">
-                        {{-- {{ $menus->links() }} --}}
+                        {{ $settings->links() }}
                     </div>
                 </div>
                 <!-- /.row -->

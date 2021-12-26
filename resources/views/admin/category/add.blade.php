@@ -18,7 +18,7 @@
               @csrf
               <div class="form-group">
                 <label>Tên danh mục</label>
-                <input type="name" class="form-control" name="name" placeholder="Nhập tên danh mục">
+                <input class="form-control" name="name" placeholder="Nhập tên danh mục">
               </div>
               <div class="form-group">
                   <label>Chọn danh mục cha</label>
