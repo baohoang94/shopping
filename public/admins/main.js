@@ -20,7 +20,7 @@ function actionDelete(event) {
                         that.parent().parent().fadeOut(2000);
                         Swal.fire(
                             'Đã xóa!',
-                            'Sản phẩm này đã được xóa.',
+                            'Xóa thành công.',
                             'success'
                         )
                     }
