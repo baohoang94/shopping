@@ -14,7 +14,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="post">
+                        <form action="{{ route('settings.update', ['id' => $setting->id]) }}?type={{ $setting->type }}" method="post">
                             @csrf
                             <div class="form-group">
                                 <label>Config key</label>
