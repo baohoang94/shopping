@@ -121,4 +121,10 @@ Route::prefix('admin')->group(function () {
             'uses' => 'SliderAdminController@delete'
         ]);
     });
+    Route::prefix('settings')->group(function () {
+        Route::get('/', [
+            'as' => 'settings.index',
+            'uses' => 'AdminSettingController@index'
+        ]);
+    });
 });
