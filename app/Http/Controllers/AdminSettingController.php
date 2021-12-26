@@ -10,4 +10,8 @@ class AdminSettingController extends Controller
     {
         return view('admin.setting.index');
     }
+    public function create()
+    {
+        return view('admin.setting.add');
+    }
 }
