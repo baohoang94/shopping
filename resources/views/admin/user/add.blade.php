@@ -21,7 +21,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-md-6">
-                        <form action="" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('users.store') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label>Tên</label>
@@ -37,7 +37,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Chọn vai trò</label>
-                                <select name="rele_id[]" class="form-control select2_init" multiple>
+                                <select name="role_id[]" class="form-control select2_init" multiple>
                                     @foreach ($roles as $role)
                                         <option value="{{ $role->id }}">{{ $role->name }}</option>
                                     @endforeach
