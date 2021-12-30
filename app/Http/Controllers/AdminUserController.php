@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Role;
+use App\Traits\DeleteModelTrait;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -11,6 +12,7 @@ use Illuminate\Support\Facades\Log;
 
 class AdminUserController extends Controller
 {
+    use DeleteModelTrait;
     private $user;
     private $role;
     public function __construct(User $user, Role $role)
@@ -73,5 +75,9 @@ class AdminUserController extends Controller
             Log::error($errorMessage);
             echo $errorMessage;
         }
+    }
+    public function delete($id)
+    {
+        return $this->deleteModelTrait($id, $this->user);
     }
 }
