@@ -37,8 +37,7 @@ class AdminUserController extends Controller
                 'email' => $request->email,
                 'password' => Hash::make($request->password),
             ]);
-            $roleIds = $request->role_id;
-            $user->roles()->attach($roleIds);
+            $user->roles()->attach($request->role_id);
             DB::commit();
             return redirect()->route('users.index');
         } catch (\Exception $exception) {
@@ -54,5 +53,25 @@ class AdminUserController extends Controller
         $user = $this->user->find($id);
         $rolesOfUser = $user->roles;
         return view('admin.user.edit', compact('roles', 'user', 'rolesOfUser'));
+    }
+    public function update(Request $request, $id)
+    {
+        try {
+            DB::beginTransaction();
+            $this->user->find($id)->update([
+                'name' => $request->name,
+                'email' => $request->email,
+                'password' => Hash::make($request->password),
+            ]);
+            $user = $this->user->find($id);
+            $user->roles()->sync($request->role_id);
+            DB::commit();
+            return redirect()->route('users.index');
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $errorMessage = 'Mesage: ' . $exception->getMessage() . '. Line: ' . $exception->getLine();
+            Log::error($errorMessage);
+            echo $errorMessage;
+        }
     }
 }

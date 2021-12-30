@@ -164,5 +164,9 @@ Route::prefix('admin')->group(function () {
             'as' => 'users.edit',
             'uses' => 'AdminUserController@edit'
         ]);
+        Route::post('/update/{id}', [
+            'as' => 'users.update',
+            'uses' => 'AdminUserController@update'
+        ]);
     });
 });
