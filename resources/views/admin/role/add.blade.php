@@ -4,11 +4,10 @@
     <title>Thêm vai trò</title>
 @endsection
 @section('css')
-    <style>
-        .card-header {
-            background: darkturquoise;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('admins/role/add/add.css') }}">
+@endsection
+@section('js')
+    <script src="{{ asset('admins/role/add/add.js') }}"></script>
 @endsection
 
 @section('content')
@@ -41,7 +40,7 @@
                                     <div class="card border-primary mb-3 col-md-12">
                                         <div class="card-header">
                                             <label for="">
-                                                <input type="checkbox" name="">
+                                                <input type="checkbox" name="" class="checkbox_wrapper">
                                             </label>
                                             Module {{ $permissionsParentItem->name }}
                                         </div>
@@ -50,7 +49,8 @@
                                                 <div class="card-body text-primary col-md-3">
                                                     <h5 class="card-title">
                                                         <label for="">
-                                                            <input type="checkbox" name="permission_id"
+                                                            <input type="checkbox" class="checkbox_childrent"
+                                                                name="permission_id[]"
                                                                 value="{{ $permissionsChildrentItem->id }}">
                                                         </label>
                                                         {{ $permissionsChildrentItem->name }}
