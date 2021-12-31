@@ -173,4 +173,10 @@ Route::prefix('admin')->group(function () {
             'uses' => 'AdminUserController@delete'
         ]);
     });
+    Route::prefix('roles')->group(function () {
+        Route::get('/', [
+            'as' => 'roles.index',
+            'uses' => 'AdminRoleController@index'
+        ]);
+    });
 });
