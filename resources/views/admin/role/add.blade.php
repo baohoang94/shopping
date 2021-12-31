@@ -37,26 +37,29 @@
                         </div>
                         <div class="col-md-12">
                             <div class="row">
-                                <div class="card border-primary mb-3 col-md-12">
-                                    <div class="card-header">
-                                        <label for="">
-                                            <input type="checkbox" name="">
-                                        </label>
-                                        Module sản phẩm
+                                @foreach ($permissionsParent as $permissionsParentItem)
+                                    <div class="card border-primary mb-3 col-md-12">
+                                        <div class="card-header">
+                                            <label for="">
+                                                <input type="checkbox" name="">
+                                            </label>
+                                            Module {{ $permissionsParentItem->name }}
+                                        </div>
+                                        <div class="row">
+                                            @foreach ($permissionsParentItem->permissionsChildrent as $permissionsChildrentItem)
+                                                <div class="card-body text-primary col-md-3">
+                                                    <h5 class="card-title">
+                                                        <label for="">
+                                                            <input type="checkbox" name="permission_id"
+                                                                value="{{ $permissionsChildrentItem->id }}">
+                                                        </label>
+                                                        {{ $permissionsChildrentItem->name }}
+                                                    </h5>
+                                                </div>
+                                            @endforeach
+                                        </div>
                                     </div>
-                                    <div class="row">
-                                        @for ($i = 0; $i <= 3; $i++)
-                                            <div class="card-body text-primary col-md-3">
-                                                <h5 class="card-title">
-                                                    <label for="">
-                                                        <input type="checkbox" name="">
-                                                    </label>
-                                                    Thêm sản phẩm
-                                                </h5>
-                                            </div>
-                                        @endfor
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
