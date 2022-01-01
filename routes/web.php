@@ -201,4 +201,10 @@ Route::prefix('admin')->group(function () {
             'uses' => 'AdminRoleController@delete'
         ]);
     });
+    Route::prefix('permissions')->group(function () {
+        Route::get('/create', [
+            'as' => 'permissions.create',
+            'uses' => 'AdminRoleController@createPermission'
+        ]);
+    });
 });
