@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Product;
+use App\Services\PermissionGateAndPolicyAccess;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -26,7 +27,8 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        $this->defineGateCategory();
+        $permissionGateAndPolicy = new PermissionGateAndPolicyAccess;
+        $permissionGateAndPolicy->setGateAndPolicyAccess();
         Gate::define('menu-list', function ($user) {
             return $user->checkPermissinAccess(config('permissions.access.list-menu'));
         });
@@ -39,12 +41,5 @@ class AuthServiceProvider extends ServiceProvider
             }
             return false;
         });
-    }
-    public function defineGateCategory()
-    {
-        Gate::define('category-list', 'App\Policies\CategoryPolicy@view');
-        Gate::define('category-add', 'App\Policies\CategoryPolicy@create');
-        Gate::define('category-edit', 'App\Policies\CategoryPolicy@update');
-        Gate::define('category-delete', 'App\Policies\CategoryPolicy@delete');
     }
 }
