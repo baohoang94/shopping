@@ -79,7 +79,8 @@ Route::prefix('admin')->group(function () {
     Route::prefix('product')->group(function () {
         Route::get('/', [
             'as' => 'product.index',
-            'uses' => 'AdminProductController@index'
+            'uses' => 'AdminProductController@index',
+            'middleware' => 'can:product-list'
         ]);
         Route::get('/create', [
             'as' => 'product.create',
@@ -91,7 +92,8 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/edit/{id}', [
             'as' => 'product.edit',
-            'uses' => 'AdminProductController@edit'
+            'uses' => 'AdminProductController@edit',
+            'middleware' => 'can:product-edit,id'
         ]);
         Route::post('/update/{id}', [
             'as' => 'product.update',
