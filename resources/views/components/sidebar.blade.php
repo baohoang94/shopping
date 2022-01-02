@@ -19,7 +19,7 @@
                     <div class="panel-body">
                         <ul>
                             @foreach ($category->categoryChildrent as $categoryChildrent)
-                                <li><a href="#">{{ $categoryChildrent->name }}</a></li>
+                                <li><a href="{{ route('category.product', ['slug' => $categoryChildrent->slug, 'id' => $categoryChildrent->id]) }}">{{ $categoryChildrent->name }}</a></li>
                             @endforeach
                         </ul>
                     </div>

@@ -192,3 +192,7 @@ Route::prefix('admin')->group(function () {
     });
 });
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('category/{slug}/{id}', [
+    'as' => 'category.product',
+    'uses' => 'CategoryController@category',
+]);

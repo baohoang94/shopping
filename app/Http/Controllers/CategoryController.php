@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Category;
 use Illuminate\Http\Request;
 use App\Components\Recusive;
+use App\Product;
 
 class CategoryController extends Controller
 {
@@ -53,5 +54,12 @@ class CategoryController extends Controller
     public function delete($id) {
         $this->category->find($id)->delete();
         return redirect()->route('categories.index');
+    }
+    public function category($slug, $categotyId)
+    {
+        $categorys = Category::where('parent_id', 0)->get();
+        $categoryLimit = Category::where('parent_id', 0)->take(3)->get();
+        $products = Product::where('category_id', $categotyId)->paginate(12);
+        return view('product.category.index', compact('categorys', 'categoryLimit', 'products'));
     }
 }
