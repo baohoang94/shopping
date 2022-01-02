@@ -21,14 +21,14 @@
 							<div class="product-image-wrapper">
 								<div class="single-products">
 									<div class="productinfo text-center">
-										<img src="images/shop/product12.jpg" alt="" />
-										<h2>$56</h2>
+										<img src="{{ config('app.base_image_url') . $product->feature_image_path }}" alt="" />
+										<h2>{{ number_format($product->price) }} VND</h2>
 										<p>{{ $product->name }}</p>
 										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
-											<h2>$56</h2>
+											<h2>{{ number_format($product->price) }} VND</h2>
 											<p>{{ $product->name }}</p>
 											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
 										</div>
@@ -43,12 +43,7 @@
 							</div>
 						</div>
 						@endforeach
-						<ul class="pagination">
-							<li class="active"><a href="">1</a></li>
-							<li><a href="">2</a></li>
-							<li><a href="">3</a></li>
-							<li><a href="">&raquo;</a></li>
-						</ul>
+						{{ $products->links() }}
 					</div><!--features_items-->
 				</div>
 			</div>
