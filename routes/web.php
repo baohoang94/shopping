@@ -191,3 +191,4 @@ Route::prefix('admin')->group(function () {
         ]);
     });
 });
+Route::get('/', 'HomeController@index');
