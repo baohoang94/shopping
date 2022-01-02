@@ -56,6 +56,8 @@ return [
 
     'asset_url' => env('ASSET_URL', null),
 
+    'base_image_url' => 'http://localhost:8888/shopping/public',
+
     /*
     |--------------------------------------------------------------------------
     | Application Timezone

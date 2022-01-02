@@ -1,6 +1,3 @@
-@php
-    $baseUrl = 'http://localhost:8888/shopping/public';
-@endphp
 <div class="container">
     <div class="row">
         <div class="col-sm-12">
@@ -20,7 +17,7 @@
                                 <button type="button" class="btn btn-default get">Get it now</button>
                             </div>
                             <div class="col-sm-6">
-                                <img src="{{ $baseUrl . $slider->image_path }}" class="girl img-responsive"
+                                <img src="{{ config('app.base_image_url') . $slider->image_path }}" class="girl img-responsive"
                                     alt="{{ $slider->image_name }}" />
                                 <img src="/shopping/public/eshopper/images/home/pricing.png" class="pricing"
                                     alt="" />

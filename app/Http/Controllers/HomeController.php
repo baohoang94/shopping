@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Product;
 use App\Slider;
 use Illuminate\Http\Request;
 
@@ -12,6 +13,7 @@ class HomeController extends Controller
     {
         $sliders = Slider::latest()->get();
         $categorys = Category::where('parent_id', 0)->get();
-        return view('home.home', compact('sliders', 'categorys'));
+        $products = Product::latest()->take(6)->get();
+        return view('home.home', compact('sliders', 'categorys', 'products'));
     }
 }
