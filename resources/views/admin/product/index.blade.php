@@ -33,6 +33,7 @@
                     <th scope="col">Hình ảnh</th>
                     <th scope="col">Danh mục</th>
                     <th scope="col">Người tạo</th>
+                    <th scope="col">Lượt xem</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
@@ -48,6 +49,7 @@
                     {{-- tranh bi loi khi ko co ten danh muc --}}
                     <td>{{ optional($productItem->category)->name }}</td>
                     <td>{{ optional($productItem->user)->name }}</td>
+                    <td>{{ $productItem->views_count }}</td>
                     <td>
                       <a href="{{ route('product.edit', ['id' => $productItem->id]) }}" class="btn btn-default">Edit</a>
                       <a href="" data-url="{{ route('product.delete', ['id' => $productItem->id]) }}" class="btn btn-danger action_delete">Delete</a>

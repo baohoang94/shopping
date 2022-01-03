@@ -77,6 +77,14 @@ class AdminProductController extends Controller
                     ]);
                 }
             }
+            // insert link image to product_image_links table
+            if (!empty($request->image_link)) {
+                foreach ($request->image_link as $linkItem) {
+                    $product->productImageLinks()->create([
+                        'image_link' => $linkItem,
+                    ]);
+                }
+            }
             // insert tags for products
             if (!empty($request->tags)) {
                 foreach ($request->tags as $tagItem) {

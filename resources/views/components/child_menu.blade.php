@@ -1,7 +1,7 @@
 @if ($categoryParent->categoryChildrent->count())
     <ul role="menu" class="sub-menu">
         @foreach ($categoryParent->categoryChildrent as $categoryChild)
-            <li><a href="#">{{ $categoryChild->name }}</a></li>
+            <li><a href="{{ route('category.product', ['slug' => $categoryChild->slug, 'id' => $categoryChild->id]) }}">{{ $categoryChild->name }}</a></li>
             @if ($categoryChild->categoryChildrent->count())
             @include('components.child_menu', ['categoryParent' => $categoryChild])
             @endif

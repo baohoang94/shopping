@@ -17,6 +17,7 @@ Route::get('/home', function () {
     return view('home');
 });
 Route::get('/', 'HomeController@index')->name('home');
+Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
 Route::get('category/{slug}/{id}', [
     'as' => 'category.product',
     'uses' => 'CategoryController@category',

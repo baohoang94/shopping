@@ -24,6 +24,9 @@
                 </div>
             @endif
         </div> --}}
+        <div class="d-none appendElement">
+            <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="">
+        </div>
         <form action="{{ route('product.store') }}" method="post" enctype="multipart/form-data">
             <!-- Main content -->
             <div class="content">
@@ -59,6 +62,11 @@
                                 <label>Ảnh theo link</label>
                                 <input type="url" class="form-control" name="feature_image_link" placeholder="Nhập Ảnh theo link" value="{{ old('feature_image_link') }}">
                             </div>
+                            <div class="form-group image_link">
+                                <label>Ảnh chi tiết theo link</label>
+                                <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="">
+                            </div>
+                            <div class="btn btn-primary" onclick="$('.image_link').append($('.appendElement').html())">Thêm</div>
                             <div class="form-group">
                                 <label>Chọn danh mục</label>
                                 <select class="form-control select2_init @error('category_id') is-invalid @enderror" name="category_id">

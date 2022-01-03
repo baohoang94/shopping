@@ -8,15 +8,15 @@
                         <img src="{{ !empty($product->feature_image_path) ? config('app.base_image_url') . $product->feature_image_path : $product->feature_image_link }}" alt="{{ $product->feature_image_name }}" />
                         <h2>{{ number_format($product->price) }} VND</h2>
                         <p>{{ $product->name }}</p>
-                        <a href="#" class="btn btn-default add-to-cart"><i
-                                class="fa fa-shopping-cart"></i>Add to cart</a>
+                        <a href="{{ route('detail', ['id' => $product->id]) }}" class="btn btn-default add-to-cart"><i
+                                class="fa fa-eye"></i>Xem</a>
                     </div>
                     <div class="product-overlay">
                         <div class="overlay-content">
                             <h2>{{ number_format($product->price) }} VND</h2>
                             <p>{{ $product->name }}</p>
-                            <a href="#" class="btn btn-default add-to-cart"><i
-                                    class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <a href="{{ route('detail', ['id' => $product->id]) }}" class="btn btn-default add-to-cart"><i
+                                    class="fa fa-eye"></i>Xem</a>
                         </div>
                     </div>
                 </div>

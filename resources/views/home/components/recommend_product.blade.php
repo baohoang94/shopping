@@ -11,11 +11,10 @@
                     <div class="product-image-wrapper">
                         <div class="single-products">
                             <div class="productinfo text-center">
-                                <img src="{{ !empty($productRecommendItem->feature_image_path) ? config('app.base_image_url') . $productRecommendItem->feature_image_path : $productRecommendItem->feature_image_name }}" alt="{{ $productRecommendItem->feature_image_name }}" />
+                                <img src="{{ !empty($productRecommendItem->feature_image_path) ? config('app.base_image_url') . $productRecommendItem->feature_image_path : $productRecommendItem->feature_image_link }}" alt="{{ $productRecommendItem->feature_image_name }}" />
                                 <h2>{{ number_format($productRecommendItem->price) }} VND</h2>
                                 <p>{{ $productRecommendItem->name }}</p>
-                                <a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to
-                                    cart</a>
+                                <a href="{{ route('detail', ['id' => $productRecommendItem->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-eye"></i>Xem</a>
                             </div>
 
                         </div>
