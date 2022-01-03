@@ -32,14 +32,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('menu-list', function ($user) {
             return $user->checkPermissinAccess(config('permissions.access.list-menu'));
         });
-        Gate::define('product-list', function ($user) {
-            return $user->checkPermissinAccess('list_product');
-        });
-        Gate::define('product-edit', function ($user, $id) {
-            if ($user->checkPermissinAccess('edit_product') && $user->id === Product::find($id)->user_id) {
-                return true;
-            }
-            return false;
-        });
     }
 }

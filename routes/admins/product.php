@@ -9,11 +9,13 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::get('/create', [
             'as' => 'product.create',
-            'uses' => 'AdminProductController@create'
+            'uses' => 'AdminProductController@create',
+            'middleware' => 'can:product-add'
         ]);
         Route::post('/store', [
             'as' => 'product.store',
-            'uses' => 'AdminProductController@store'
+            'uses' => 'AdminProductController@store',
+            'middleware' => 'can:product-add'
         ]);
         Route::get('/edit/{id}', [
             'as' => 'product.edit',
@@ -22,11 +24,13 @@ Route::prefix('admin')->group(function () {
         ]);
         Route::post('/update/{id}', [
             'as' => 'product.update',
-            'uses' => 'AdminProductController@update'
+            'uses' => 'AdminProductController@update',
+            'middleware' => 'can:product-edit,id'
         ]);
         Route::get('/delete/{id}', [
             'as' => 'product.delete',
-            'uses' => 'AdminProductController@delete'
+            'uses' => 'AdminProductController@delete',
+            'middleware' => 'can:product-delete,id'
         ]);
     });
 });
