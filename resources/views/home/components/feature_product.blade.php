@@ -5,7 +5,7 @@
             <div class="product-image-wrapper">
                 <div class="single-products">
                     <div class="productinfo text-center">
-                        <img src="{{ config('app.base_image_url') . $product->feature_image_path }}" alt="{{ $product->feature_image_name }}" />
+                        <img src="{{ !empty($product->feature_image_path) ? config('app.base_image_url') . $product->feature_image_path : $product->feature_image_link }}" alt="{{ $product->feature_image_name }}" />
                         <h2>{{ number_format($product->price) }} VND</h2>
                         <p>{{ $product->name }}</p>
                         <a href="#" class="btn btn-default add-to-cart"><i

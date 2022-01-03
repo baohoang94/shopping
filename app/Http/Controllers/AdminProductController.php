@@ -58,6 +58,8 @@ class AdminProductController extends Controller
                 'content' => $request->contents,
                 'user_id' => auth()->id(),
                 'category_id' => $request->category_id,
+                'views_count' => 0,
+                'feature_image_link' => $request->feature_image_link,
             ];
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
             if (!empty($dataUploadFeatureImage)) {
@@ -108,6 +110,7 @@ class AdminProductController extends Controller
                 'content' => $request->contents,
                 'user_id' => auth()->id(),
                 'category_id' => $request->category_id,
+                'feature_image_link' => $request->feature_image_link,
             ];
             $dataUploadFeatureImage = $this->storageTraitUpload($request, 'feature_image_path', 'product');
             if (!empty($dataUploadFeatureImage)) {

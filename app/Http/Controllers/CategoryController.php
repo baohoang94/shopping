@@ -59,7 +59,7 @@ class CategoryController extends Controller
     {
         $categorys = Category::where('parent_id', 0)->get();
         $categoryLimit = Category::where('parent_id', 0)->take(3)->get();
-        $products = Product::where('category_id', $categotyId)->paginate(3);
+        $products = Product::where('category_id', $categotyId)->latest()->paginate(12);
         return view('product.category.index', compact('categorys', 'categoryLimit', 'products'));
     }
 }

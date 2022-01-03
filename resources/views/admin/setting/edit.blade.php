@@ -18,7 +18,7 @@
                             @csrf
                             <div class="form-group">
                                 <label>Config key</label>
-                                <input type="text" value="{{ $setting->config_key }}" class="form-control @error('config_key') is-invalid @enderror" name="config_key" placeholder="Nhập config key">
+                                <input disabled type="text" value="{{ $setting->config_key }}" class="form-control @error('config_key') is-invalid @enderror" name="config_key" placeholder="Nhập config key">
                                 @error('config_key')
                                     <div class="alert alert-danger">{{ $message }}</div>
                                 @enderror

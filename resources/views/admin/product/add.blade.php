@@ -56,6 +56,10 @@
                                     placeholder="Nhập ảnh sản phẩm">
                             </div>
                             <div class="form-group">
+                                <label>Ảnh theo link</label>
+                                <input type="url" class="form-control" name="feature_image_link" placeholder="Nhập Ảnh theo link" value="{{ old('feature_image_link') }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Chọn danh mục</label>
                                 <select class="form-control select2_init @error('category_id') is-invalid @enderror" name="category_id">
                                     <option value="">Chọn danh mục</option>

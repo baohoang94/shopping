@@ -14,7 +14,7 @@
                 <div class="product-image-wrapper">
                     <div class="single-products">
                         <div class="productinfo text-center">
-                            <img src="{{ config('app.base_image_url') . $productItemTabs->feature_image_path }}" alt="{{ $productItemTabs->feature_image_name }}" />
+                            <img src="{{ !empty($productItemTabs->feature_image_path) ? config('app.base_image_url') . $productItemTabs->feature_image_path : $productItemTabs->feature_image_link }}" alt="{{ $productItemTabs->feature_image_name }}" />
                             <h2>{{ number_format($productItemTabs->price) }} VND</h2>
                             <p>{{ $productItemTabs->name }}</p>
                             <a href="#" class="btn btn-default add-to-cart"><i
