@@ -40,6 +40,13 @@ class RouteServiceProvider extends ServiceProvider
         $this->mapWebRoutes();
 
         $this->mapAdminProductRoutes();
+        $this->mapAdminCategoryRoutes();
+        $this->mapAdminMenuRoutes();
+        $this->mapAdminSliderRoutes();
+        $this->mapAdminSettingRoutes();
+        $this->mapAdminUserRoutes();
+        $this->mapAdminRoleRoutes();
+        $this->mapAdminPermissionRoutes();
 
         //
     }
@@ -62,6 +69,48 @@ class RouteServiceProvider extends ServiceProvider
         Route::middleware('web')
              ->namespace($this->namespace)
              ->group(base_path('routes/admins/product.php'));
+    }
+    protected function mapAdminCategoryRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/category.php'));
+    }
+    protected function mapAdminMenuRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/menu.php'));
+    }
+    protected function mapAdminSliderRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/slider.php'));
+    }
+    protected function mapAdminSettingRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/setting.php'));
+    }
+    protected function mapAdminUserRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/user.php'));
+    }
+    protected function mapAdminRoleRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/role.php'));
+    }
+    protected function mapAdminPermissionRoutes()
+    {
+        Route::middleware('web')
+             ->namespace($this->namespace)
+             ->group(base_path('routes/admins/permission.php'));
     }
 
     /**
