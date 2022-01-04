@@ -26,7 +26,11 @@ function actionDelete(event) {
                     }
                 },
                 error: function (data) {
-
+                    Swal.fire(
+                        'Lỗi ' + data.status,
+                        'Xóa thất bại.',
+                        'error'
+                    )
                 }
             })
         }

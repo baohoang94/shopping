@@ -24,7 +24,7 @@
 										<img src="{{ !empty($product->feature_image_path) ? config('app.base_image_url') . $product->feature_image_path : $product->feature_image_link }}" alt="" />
 										<h2>{{ number_format($product->price) }} VND</h2>
 										<p>{{ $product->name }}</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Xem</a>
+										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-eye"></i>Xem</a>
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
