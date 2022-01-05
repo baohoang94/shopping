@@ -22,7 +22,13 @@ class AdminController extends Controller
         ], $remember)) {
             return redirect()->to('home');
         }
-        return view('login');
+        $message = 'Thông tin đăng nhập không chính xác';
+        return view('login', compact('message'));
+    }
+    public function logoutAdmin()
+    {
+        auth()->logout();
+        return redirect()->route('admin');
     }
 
 }

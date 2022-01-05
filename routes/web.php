@@ -13,9 +13,10 @@
 
 Route::get('/admin', 'AdminController@loginAdmin')->name('admin');
 Route::post('/admin', 'AdminController@postloginAdmin');
+Route::get('/admin/logout', 'AdminController@logoutAdmin')->name('logoutAdmin');
 Route::get('/home', function () {
     return view('home');
-});
+})->name('admin.home');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
 Route::get('category/{slug}/{id}', [

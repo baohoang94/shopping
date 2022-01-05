@@ -54,7 +54,7 @@ class ProductPolicy
      */
     public function update(User $user, $id)
     {
-        if ($user->checkPermissinAccess('edit_product') && $user->id === Product::find($id)->user_id) {
+        if ($user->checkPermissinAccess('edit_product') && ($user->id === Product::find($id)->user_id || $user->roles->contains('name', 'admin'))) {
             return true;
         }
         return false;
@@ -69,7 +69,7 @@ class ProductPolicy
      */
     public function delete(User $user, $id)
     {
-        if ($user->checkPermissinAccess('delete_product') && $user->id === Product::find($id)->user_id) {
+        if ($user->checkPermissinAccess('delete_product') && ($user->id === Product::find($id)->user_id || $user->roles->contains('name', 'admin'))) {
             return true;
         }
         return false;

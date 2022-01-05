@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Product extends Model
@@ -34,5 +35,9 @@ class Product extends Model
     public function productImageLinks()
     {
         return $this->hasMany(ProductImageLink::class, 'product_id');
+    }
+    public function userView()
+    {
+        return $this->belongsToMany(User::class, 'product_view', 'product_id', 'user_id');
     }
 }

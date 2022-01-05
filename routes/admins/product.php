@@ -32,5 +32,10 @@ Route::prefix('admin')->group(function () {
             'uses' => 'AdminProductController@delete',
             'middleware' => 'can:product-delete,id'
         ]);
+        Route::get('/productView', [
+            'as' => 'product.view',
+            'uses' => 'AdminProductViewController@productView',
+            'middleware' => 'can:product-list'
+        ]);
     });
 });
