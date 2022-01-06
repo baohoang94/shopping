@@ -49,6 +49,10 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Link sản phẩm</label>
+                                <input type="url" class="form-control" name="url_link" placeholder="Nhập Link sản phẩm" value="{{ old('url_link') }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Ảnh đại diện</label>
                                 <input type="file" class="form-control-file" name="feature_image_path"
                                     placeholder="Nhập ảnh sản phẩm">

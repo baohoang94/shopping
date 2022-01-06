@@ -31,6 +31,14 @@
                                 @enderror
                             </div>
                             <div class="form-group">
+                                <label>Link hình ảnh</label>
+                                <input type="url" class="form-control" name="image_link" placeholder="Nhập Link hình ảnh" value="{{ old('image_link') }}">
+                            </div>
+                            <div class="form-group">
+                                <label>Link liên kết</label>
+                                <input type="url" class="form-control" name="url_link" placeholder="Nhập Link liên kết" value="{{ old('url_link') }}">
+                            </div>
+                            <div class="form-group">
                                 <label>Ảnh</label>
                                 <input type="file" class="form-control-file @error('image_path') is-invalid @enderror" name="image_path">
                                 @error('image_path')

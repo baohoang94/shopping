@@ -18,9 +18,6 @@
             <div class="info">
                 <a href="#" class="d-block">{{ auth()->user()->name }}</a>
             </div>
-            <div class="info">
-                <a href="{{ route('logoutAdmin') }}">Logout</a>
-            </div>
         </div>
 
         <!-- SidebarSearch Form -->
@@ -108,6 +105,14 @@
                         <i class="nav-icon fas fa-th"></i>
                         <p>
                             Tạo danh sách permissions
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{ route('logoutAdmin') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Đăng xuất
                         </p>
                     </a>
                 </li>

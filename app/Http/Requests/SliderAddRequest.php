@@ -26,7 +26,6 @@ class SliderAddRequest extends FormRequest
         return [
             'name' => 'bail|required|unique:sliders|max:255',
             'description' => 'required',
-            'image_path' => 'required',
         ];
     }
     /**
@@ -41,7 +40,6 @@ class SliderAddRequest extends FormRequest
             'name.unique' => 'Tên không được trùng',
             'name.max' => 'Tên không được lớn hơn 255 kí tự',
             'description.required'  => 'Mô tả không được để trống',
-            'image_path.required'  => 'Hình ảnh không được để trống',
         ];
     }
 }

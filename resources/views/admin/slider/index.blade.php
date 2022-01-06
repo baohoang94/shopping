@@ -41,7 +41,7 @@
                                         <td>{{ $slider->description }}</td>
                                         <td>
                                             <img class="image_slider_150_100"
-                                                src="/shopping/public{{ $slider->image_path }}"
+                                                src="{{ !empty($slider->image_path) ? config('app.base_image_url') . $slider->image_path : $slider->image_link }}"
                                                 alt="{{ $slider->image_name }}">
                                         </td>
                                         <td>

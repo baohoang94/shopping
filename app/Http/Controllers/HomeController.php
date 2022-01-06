@@ -12,7 +12,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $sliders = Slider::latest()->get();
+        $sliders = Slider::latest()->take(3)->get();
         $categorys = Category::where('parent_id', '>', 0)->take(6)->get();
         $categoryLimit = Category::where('parent_id', 0)->take(3)->get();
         $products = Product::latest()->take(3)->get();
