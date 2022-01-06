@@ -59,6 +59,8 @@ class SliderAdminController extends Controller
             $dataUpdate = [
                 'name' => $request->name,
                 'description' => $request->description,
+                'image_link' => $request->image_link,
+                'url_link' => $request->url_link,
             ];
             $dataImageSlider = $this->storageTraitUpload($request, 'image_path', 'slider');
             if (!empty($dataImageSlider)) {
