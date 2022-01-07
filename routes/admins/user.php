@@ -26,5 +26,13 @@ Route::prefix('admin')->group(function () {
             'as' => 'users.delete',
             'uses' => 'AdminUserController@delete'
         ]);
+        Route::get('/changePassword', [
+            'as' => 'users.changePassword',
+            'uses' => 'AdminUserController@changePassword'
+        ]);
+        Route::post('/updatePassword', [
+            'as' => 'users.updatePassword',
+            'uses' => 'AdminUserController@updatePassword'
+        ]);
     });
 });

@@ -26,11 +26,19 @@ class HomeController extends Controller
         $categorys = Category::where('parent_id', '>', 0)->take(6)->get();
         $categoryLimit = Category::where('parent_id', 0)->take(3)->get();
         $product->update(['views_count' => $product->views_count + 1]);
-        ProductView::create([
-            'user_id' => optional(auth()->user())->id,
-            'product_id' => $product->id,
-            'ip_address' => ''
-        ]);
+        try {
+            ProductView::create([
+                'user_id' => optional(auth()->user())->id,
+                'product_id' => $product->id,
+                'ip_address' => request()->ip()
+            ]);
+        } catch (\Throwable $th) {
+            ProductView::create([
+                'user_id' => optional(auth()->user())->id,
+                'product_id' => $product->id,
+                'ip_address' => ''
+            ]);
+        }
         return view('product.detail', compact('product', 'categorys', 'categoryLimit'));
     }
 }

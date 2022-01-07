@@ -80,4 +80,37 @@ class AdminUserController extends Controller
     {
         return $this->deleteModelTrait($id, $this->user);
     }
+    public function changePassword()
+    {
+        return view('admin.user.changePassword');
+    }
+    public function updatePassword(Request $request)
+    {
+        $check = true;
+        while ($check) {
+            if (!Hash::check($request->old_password, auth()->user()->password)) {
+                $check = false;
+                $messge = 'Sai mật khẩu cũ';
+                break;
+            }
+            if (strlen($request->new_password) < 8) {
+                $check = false;
+                $messge = 'Mật khẩu phải > 8 kí tự';
+                break;
+            }
+            if ($request->new_password !== $request->confirm_new_password) {
+                $check = false;
+                $messge = 'Nhập lại mật khẩu mới không khớp';
+                break;
+            }
+            break;
+        }
+        if ($check) {
+            User::find(auth()->user()->id)->update([
+                'password' => Hash::make($request->new_password),
+            ]);
+            return redirect()->to('home');
+        }
+        return view('admin.user.changePassword', compact('messge'));
+    }
 }

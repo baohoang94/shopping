@@ -109,6 +109,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('users.changePassword') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Đổi mật khẩu
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('logoutAdmin') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>
