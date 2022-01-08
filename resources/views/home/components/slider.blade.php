@@ -11,10 +11,10 @@
                     @foreach ($sliders as $key => $slider)
                         <div class="item {{ $key === 0 ? 'active' : '' }}">
                             <div class="col-sm-6">
-                                <h1><span>E</span>-SHOPPER</h1>
+                                <h1><span>Men's</span> Fashion</h1>
                                 <h2>{{ $slider->name }}</h2>
                                 <p>{{ $slider->description }}</p>
-                                <button type="button" class="btn btn-default get">Get it now</button>
+                                {{-- <button type="button" class="btn btn-default get">Get it now</button> --}}
                             </div>
                             <div class="col-sm-6">
                                 <img src="{{ !empty($slider->image_path) ? config('app.base_image_url') . $slider->image_path : $slider->image_link }}" class="girl img-responsive"

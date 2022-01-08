@@ -8,7 +8,7 @@
                     <div class="contactinfo">
                         <ul class="nav nav-pills">
                             <li><a href="#"><i class="fa fa-phone"></i> {{ getConfigValueFromSettingTable('phone_contact') }}</a></li>
-                            <li><a href="#"><i class="fa fa-envelope"></i> {{ getConfigValueFromSettingTable('email') }}</a></li>
+                            {{-- <li><a href="#"><i class="fa fa-envelope"></i> {{ getConfigValueFromSettingTable('email') }}</a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -17,9 +17,9 @@
                         <ul class="nav navbar-nav">
                             <li><a href="{{ getConfigValueFromSettingTable('facebook_link') }}"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="{{ getConfigValueFromSettingTable('twitter_link') }}"><i class="fa fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            {{-- <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
                             <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
-                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li> --}}
                         </ul>
                     </div>
                 </div>
@@ -40,11 +40,11 @@
                 <div class="col-md-8 clearfix">
                     <div class="shop-menu clearfix pull-right">
                         <ul class="nav navbar-nav">
-                            <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
+                            {{-- <li><a href="#"><i class="fa fa-user"></i> Account</a></li>
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
-                            <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li>
+                            <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li> --}}
                             <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            <li><a href="#"><i class="fa fa-lock"></i> Login</a></li>
+                            {{-- <li><a href="#"><i class="fa fa-lock"></i> Login</a></li> --}}
                         </ul>
                     </div>
                 </div>

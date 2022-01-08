@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    <title>Home | E-Shopper</title>
+    <title>Thời trang nam, phối đồ nam</title>
 @endsection
 @section('css')
     <link href="{{ asset('homes/home.css') }}" rel="stylesheet">
