@@ -13,6 +13,9 @@
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         @include('partials.content-header', ['name' => 'product', 'key' => 'Add'])
+        <div class="d-none appendElement">
+            <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="">
+        </div>
         <form action="{{ route('product.update', ['id' => $product->id]) }}" method="post" enctype="multipart/form-data">
             <!-- Main content -->
             <div class="content">
@@ -32,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label>Link sản phẩm</label>
-                                <input type="url" class="form-control" name="url_link" placeholder="Nhập Link sản phẩm" value="{{ old('url_link') }}">
+                                <input type="url" class="form-control" name="url_link" placeholder="Nhập Link sản phẩm" value="{{ $product->url_link }}">
                             </div>
                             <div class="form-group">
                                 <label>Ảnh đại diện</label>
@@ -41,7 +44,7 @@
                                 <div class="col-md-4 feature_image_container">
                                     <div class="row">
                                         <img class="feature_image"
-                                            src="/shopping/public{{ $product->feature_image_path }}" alt="">
+                                            src="{{ config('app.base_image_url') . $product->feature_image_path }}" alt="">
                                     </div>
                                 </div>
                             </div>
@@ -54,7 +57,7 @@
                                         @foreach ($product->productImages as $productImageItem)
                                             <div class="col-md-3">
                                                 <img class="image_detail_product"
-                                                    src="/shopping/public{{ $productImageItem->image_path }}" alt="">
+                                                    src="{{ config('app.base_image_url') . $productImageItem->image_path }}" alt="">
                                             </div>
                                         @endforeach
                                     </div>
@@ -70,6 +73,22 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="form-group image_link">
+                                <label>Ảnh chi tiết theo link</label>
+                                @if (!empty($product->productImageLinks->count()))
+                                    @foreach ($product->productImageLinks as $productImageLinkItem)
+                                        <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="{{ $productImageLinkItem->image_link }}">
+                                        <div class="col-md-4 feature_image_container">
+                                            <div class="row">
+                                                <img class="feature_image"
+                                                    src="{{ $productImageLinkItem->image_link }}" alt="">
+                                            </div>
+                                        </div>
+                                        <br>
+                                    @endforeach
+                                @endif
+                            </div>
+                            <div class="btn btn-primary" onclick="$('.image_link').append($('.appendElement').html())">Thêm</div>
                             <div class="form-group">
                                 <label>Chọn danh mục</label>
                                 <select class="form-control select2_init" name="category_id">

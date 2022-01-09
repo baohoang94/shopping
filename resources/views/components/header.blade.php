@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-md-4 clearfix">
                     <div class="logo pull-left">
-                        <a href="{{ route('home') }}"><img src="/shopping/public/eshopper/images/home/logo.png" alt="" /></a>
+                        <a href="{{ route('home') }}"><img src="https://png.pngitem.com/pimgs/s/512-5122646_fashion-magazine-logo-png-mens-fashion-logo-png.png" height="39px" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-md-8 clearfix">

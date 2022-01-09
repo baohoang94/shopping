@@ -7,6 +7,7 @@ use App\Components\Recusive;
 use App\Http\Requests\ProductAddRequest;
 use App\Product;
 use App\ProductImage;
+use App\ProductImageLink;
 use App\ProductTag;
 use App\Tag;
 use App\Traits\DeleteModelTrait;
@@ -81,9 +82,11 @@ class AdminProductController extends Controller
             // insert link image to product_image_links table
             if (!empty($request->image_link)) {
                 foreach ($request->image_link as $linkItem) {
-                    $product->productImageLinks()->create([
-                        'image_link' => $linkItem,
-                    ]);
+                    if (!empty($linkItem)) {
+                        $product->productImageLinks()->create([
+                            'image_link' => $linkItem,
+                        ]);
+                    }
                 }
             }
             // insert tags for products
@@ -138,6 +141,17 @@ class AdminProductController extends Controller
                         'image_path' => $dataProductImageDetail['file_path'],
                         'image_name' => $dataProductImageDetail['file_name'],
                     ]);
+                }
+            }
+            // insert link image to product_image_links table
+            if (!empty($request->image_link)) {
+                ProductImageLink::where('product_id', $id)->delete();
+                foreach ($request->image_link as $linkItem) {
+                    if (!empty($linkItem)) {
+                        $product->productImageLinks()->create([
+                            'image_link' => $linkItem,
+                        ]);
+                    }
                 }
             }
             // insert tags for products
