@@ -1,5 +1,5 @@
 <div class="features_items">
-    <h2 class="title text-center">Features Items</h2>
+    <h2 class="title text-center">Sản phẩm mới</h2>
     @foreach ($products as $product)
         <div class="col-sm-4">
             <div class="product-image-wrapper">
@@ -22,8 +22,8 @@
                 </div>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to wishlist</a></li>
-                        <li><a href="#"><i class="fa fa-plus-square"></i>Add to compare</a></li>
+                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
+                        <li><a href="#"><i class="fa fa-plus-square-o"></i></a></li>
                     </ul>
                 </div>
             </div>
