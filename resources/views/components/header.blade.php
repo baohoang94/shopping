@@ -34,7 +34,7 @@
             <div class="row">
                 <div class="col-md-4 clearfix">
                     <div class="logo pull-left">
-                        <a href="{{ route('home') }}"><img src="https://png.pngitem.com/pimgs/s/512-5122646_fashion-magazine-logo-png-mens-fashion-logo-png.png" height="39px" alt="" /></a>
+                        <a href="{{ route('home') }}"><img src="{{ asset('eshopper/images/home/mylogo.png') }}" height="39px" alt="" /></a>
                     </div>
                 </div>
                 <div class="col-md-8 clearfix">
@@ -44,7 +44,11 @@
                             <li><a href="#"><i class="fa fa-star"></i> Wishlist</a></li>
                             <li><a href="#"><i class="fa fa-crosshairs"></i> Checkout</a></li> --}}
                             <li><a href="#"><i class="fa fa-shopping-cart"></i> Cart</a></li>
-                            {{-- <li><a href="#"><i class="fa fa-lock"></i> Login</a></li> --}}
+                            @if (auth()->check())
+                                <li><a href="{{ route('user.logout') }}"><i class="fa fa-sign-out"></i> Logout</a></li>
+                            @else
+                                <li><a href="{{ route('user.login') }}"><i class="fa fa-lock"></i> Login</a></li>
+                            @endif
                         </ul>
                     </div>
                 </div>

@@ -16,9 +16,9 @@
 </head>
 
 <body>
-    @include('components.header');
+    @include('components.header')
     @yield('content')
-    @include('components.footer');
+    @include('components.footer')
     <script src="{{ asset('eshopper/js/jquery.js') }}"></script>
     <script src="{{ asset('eshopper/js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('eshopper/js/jquery.scrollUp.min.js') }}"></script>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Comment;
 use App\Product;
 use App\ProductView;
 use App\Slider;
@@ -25,6 +26,7 @@ class HomeController extends Controller
         $product = Product::find($id);
         $categorys = Category::where('parent_id', '>', 0)->take(6)->get();
         $categoryLimit = Category::where('parent_id', 0)->take(3)->get();
+        $comments = Comment::where('product_id', $product->id)->get();
         $product->update(['views_count' => $product->views_count + 1]);
         try {
             ProductView::create([
@@ -39,6 +41,6 @@ class HomeController extends Controller
                 'ip_address' => ''
             ]);
         }
-        return view('product.detail', compact('product', 'categorys', 'categoryLimit'));
+        return view('product.detail', compact('product', 'categorys', 'categoryLimit', 'comments'));
     }
 }

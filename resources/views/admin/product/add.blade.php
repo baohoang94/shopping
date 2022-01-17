@@ -68,7 +68,13 @@
                             </div>
                             <div class="form-group image_link">
                                 <label>Ảnh chi tiết theo link</label>
-                                <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="">
+                                @if (!empty(old('image_link')))
+                                    @foreach (old('image_link') as $image_link_item)
+                                        <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="{{ $image_link_item }}">
+                                    @endforeach
+                                @else
+                                    <input type="url" class="form-control" name="image_link[]" placeholder="Nhập đường dẫn ảnh" value="">
+                                @endif
                             </div>
                             <div class="btn btn-primary" onclick="$('.image_link').append($('.appendElement').html())">Thêm</div>
                             <div class="form-group">

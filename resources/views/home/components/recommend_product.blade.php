@@ -1,6 +1,5 @@
 <div class="recommended_items">
-    <h2 class="title text-center">có thể bạn thích</h2>
-
+    <h2 class="title text-center">sản phẩm đề xuất</h2>
     <div id="recommended-item-carousel" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @foreach ($productRecommend as $keyProductRecommend => $productRecommendItem)
@@ -16,7 +15,6 @@
                                 <p>{{ $productRecommendItem->name }}</p>
                                 <a href="{{ route('detail', ['id' => $productRecommendItem->id]) }}" class="btn btn-default add-to-cart"><i class="fa fa-eye"></i>Xem</a>
                             </div>
-
                         </div>
                     </div>
                 </div>

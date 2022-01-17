@@ -4,6 +4,7 @@
 @endsection
 @section('css')
     <link href="{{ asset('detail/jquerysctipttop.css') }}" rel="stylesheet">
+    <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
     <link href="{{ asset('vendors/exzoom/jquery.exzoom.css') }}" rel="stylesheet">
     {{-- <link href="{{ asset('homes/home.css') }}" rel="stylesheet"> --}}
     <link href="{{ asset('detail/detail.css') }}" rel="stylesheet">
@@ -11,6 +12,8 @@
 @section('js')
     <script src="{{ asset('detail/imagesloaded.pkgd.min.js') }}"></script>
     <script src="{{ asset('vendors/exzoom/jquery.exzoom.js') }}"></script>
+    <script src="https://use.fontawesome.com/5ac93d4ca8.js"></script>
+    <script src="{{ asset('vendors/ratingStar/bootstrap4-rating-input.js') }}"></script>
     {{-- <script src="{{ asset('homes/home.js') }}"></script> --}}
     <script src="{{ asset('detail/detail.js') }}"></script>
 @endsection
@@ -56,9 +59,9 @@
                                 <span>
                                     <span>{{ number_format($product->price) }} VND</span>
                                     <input type="text" value="1" />
-                                    <button type="button" class="btn btn-fefault cart">
+                                    <a href="{{ $product->url_link }}" class="btn btn-fefault cart">
                                         <i class="fa fa-shopping-cart"></i>
-                                    </button>
+                                    </a>
                                 </span>
                                 <p><b>Tình trạng:</b> Còn hàng</p>
                                 {{-- <p><b>Condition:</b> New</p> --}}
@@ -76,7 +79,7 @@
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs">
                                 <li class="active"><a href="#details" data-toggle="tab">Mô tả</a></li>
-                                {{-- <li><a href="#reviews" data-toggle="tab">Đánh giá (5)</a></li> --}}
+                                <li><a href="#reviews" data-toggle="tab">Bình luận ({{ $comments->count() }})</a></li>
                             </ul>
                         </div>
                         <div class="tab-content">
@@ -86,30 +89,33 @@
 
                             <div class="tab-pane fade" id="reviews">
                                 <div class="col-sm-12">
-                                    <ul>
-                                        <li><a href=""><i class="fa fa-user"></i>EUGEN</a></li>
-                                        <li><a href=""><i class="fa fa-clock-o"></i>12:41 PM</a></li>
-                                        <li><a href=""><i class="fa fa-calendar-o"></i>31 DEC 2014</a></li>
-                                    </ul>
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                        incididunt ut labore et dolore magna aliqua.Ut enim ad minim veniam, quis nostrud
-                                        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.Duis aute irure
-                                        dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-                                        pariatur.</p>
-                                    <p><b>Write Your Review</b></p>
+                                    @if (!empty($comments))
+                                        @foreach ($comments as $comment)
+                                            <ul>
+                                                <li><a href=""><i class="fa fa-user"></i>{{ $comment->user->name }}</a></li>
+                                                <li><a href=""><i class="fa fa-clock-o"></i>{{ date('H:i:s', strtotime($comment->created_at)) }}</a></li>
+                                                <li><a href=""><i class="fa fa-calendar-o"></i>{{ date('d/m/Y', strtotime($comment->created_at)) }}</a></li>
+                                            </ul>
+                                            <p>{{ $comment->content }}</p>
+                                        @endforeach    
+                                    @endif
+                                    @if (auth()->check())
+                                    <p><b>Viết bình luận của bạn</b></p>
 
-                                    <form action="#">
-                                        <span>
+                                    <form method="POST" action="{{ route('comment.store') }}">
+                                        @csrf
+                                        {{-- <span>
                                             <input type="text" placeholder="Your Name" />
                                             <input type="email" placeholder="Email Address" />
-                                        </span>
-                                        <textarea name=""></textarea>
-                                        <b>Rating: </b> <img
-                                            src="{{ asset('eshopper/images/product-details/rating.png') }}" alt="" />
-                                        <button type="button" class="btn btn-default pull-right">
-                                            Submit
+                                        </span> --}}
+                                        <input type="hidden" name="product_id" value="{{ $product->id }}">
+                                        <textarea name="content"></textarea>
+                                        <b>Đánh giá: </b> <input type="number" name="rating" class="rating text-warning" data-clearable="remove"/>
+                                        <button type="submit" class="btn btn-default pull-right">
+                                            Gửi
                                         </button>
                                     </form>
+                                    @endif
                                 </div>
                             </div>
 

@@ -23,3 +23,23 @@ Route::get('category/{slug}/{id}', [
     'as' => 'category.product',
     'uses' => 'CategoryController@category',
 ]);
+Route::get('login', [
+    'as' => 'user.login',
+    'uses' => 'UserController@login',
+]);
+Route::post('login', [
+    'as' => 'user.postlogin',
+    'uses' => 'UserController@postlogin',
+]);
+Route::get('logout', [
+    'as' => 'user.logout',
+    'uses' => 'UserController@logout',
+]);
+Route::post('register', [
+    'as' => 'user.register',
+    'uses' => 'UserController@register',
+]);
+Route::post('addComment', [
+    'as' => 'comment.store',
+    'uses' => 'CommentController@store',
+]);
