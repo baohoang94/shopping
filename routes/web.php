@@ -19,6 +19,10 @@ Route::get('/home', function () {
 })->name('admin.home');
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/detail/{id}', 'HomeController@detail')->name('detail');
+Route::get('/product/addToCart/{id}', 'HomeController@addToCart')->name('addToCart');
+Route::get('/product/showCart', 'HomeController@showCart')->name('showCart');
+Route::get('/product/updateCart', 'HomeController@updateCart')->name('updateCart');
+Route::get('/product/deleteCart/{id}', 'HomeController@deleteCart')->name('deleteCart');
 Route::get('category/{slug}/{id}', [
     'as' => 'category.product',
     'uses' => 'CategoryController@category',

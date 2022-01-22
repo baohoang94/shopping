@@ -22,8 +22,8 @@
                 </div>
                 <div class="choose">
                     <ul class="nav nav-pills nav-justified">
-                        <li><a href="#"><i class="fa fa-heart-o"></i></a></li>
-                        <li><a href="#"><i class="fa fa-plus-square-o"></i></a></li>
+                        <li><a href="#" title="Yêu thích"><i class="fa fa-heart-o"></i></a></li>
+                        <li><a href="#" data-url="{{ route('addToCart', ['id' => $product->id]) }}" class="add_to_cart" title="Thêm vào giỏ hàng"><i class="fa fa-plus-square-o"></i></a></li>
                     </ul>
                 </div>
             </div>
