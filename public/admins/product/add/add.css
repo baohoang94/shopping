@@ -9,3 +9,6 @@
 .container_image_detail, .feature_image_container {
     margin-top: 20px;
 }
+.tox-notifications-container, .tox-statusbar__branding {
+    display: none;
+}

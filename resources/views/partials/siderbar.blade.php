@@ -101,6 +101,14 @@
                     </a>
                 </li>
                 <li class="nav-item">
+                    <a href="{{ route('blogs.index') }}" class="nav-link">
+                        <i class="nav-icon fas fa-th"></i>
+                        <p>
+                            Danh sách bài viết
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a href="{{ route('permissions.create') }}" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>

@@ -47,3 +47,11 @@ Route::post('addComment', [
     'as' => 'comment.store',
     'uses' => 'CommentController@store',
 ]);
+Route::get('blog', [
+    'as' => 'blog.index',
+    'uses' => 'BlogController@index',
+]);
+Route::get('blog/detail/{id}', [
+    'as' => 'blog.detail',
+    'uses' => 'BlogController@detail',
+]);
