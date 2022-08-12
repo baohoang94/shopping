@@ -33,7 +33,7 @@
 										<i class="fa fa-star-half-o"></i>
 								</span>
 							</div> --}}
-							<a href="">
+							<a href="{{ route('blog.detail', ['id' => $blog->id]) }}">
 								<img src="{{ $blog->image_link }}" alt="">
 							</a>
 							<p>
